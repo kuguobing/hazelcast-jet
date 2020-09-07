@@ -5,7 +5,7 @@ import java.util.Properties;
 abstract class BaseFileSourceBuilderImpl<T> implements FileSourceBuilder<T> {
 
     String path;
-    Properties properties = new Properties();
+    Properties options = new Properties();
     FileFormat<T> fileFormat;
 
     public BaseFileSourceBuilderImpl(String path) {
@@ -14,7 +14,7 @@ abstract class BaseFileSourceBuilderImpl<T> implements FileSourceBuilder<T> {
 
     @Override
     public FileSourceBuilder<T> option(String key, Object value) {
-        properties.put(key, value);
+        options.put(key, value);
         return this;
     }
 

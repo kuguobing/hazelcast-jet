@@ -18,8 +18,12 @@ class LocalFileSourceBuilderImpl<T> extends BaseFileSourceBuilderImpl<T> {
 
     @Override
     public BatchSource<T> build() {
+        String glob = options.getProperty("glob", "*");
+        String sharedFileSystem = options.getProperty("sharedFileSystem", "false");
         FunctionEx<? super InputStream, Stream<T>> mapFn = fileFormat.mapFn();
         return Sources.filesBuilder(path)
+                .glob(glob)
+                .sharedFileSystem(Boolean.parseBoolean(sharedFileSystem))
                 .build(path -> {
                     InputStream inputStream = Files.newInputStream(path);
                     return mapFn.apply(inputStream).onClose(() -> uncheckRun(inputStream::close));
