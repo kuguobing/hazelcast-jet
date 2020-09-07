@@ -138,6 +138,13 @@
             <optional>true</optional>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.hazelcast.jet</groupId>-->
+<!--            <artifactId>hazelcast-jet-s3</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
         <!--TEST DEPENDENCIES-->
         <dependency>
             <groupId>org.apache.activemq</groupId>
